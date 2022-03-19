@@ -4,6 +4,7 @@ import { Button, Text } from "react-native-elements";
 import { auth } from "../firebase";
 import { StatusBar } from "expo-status-bar";
 import Header from "../components/Header";
+import BottomTabs from "../components/BottomTabs";
 
 const HomeScreen = ({ navigation }) => {
   const [user, setUser] = useState({});
@@ -12,7 +13,6 @@ const HomeScreen = ({ navigation }) => {
     auth.onAuthStateChanged((u) => {
       if (u) {
         setUser(u);
-        console.log(u);
       }
     });
   }, [user]);
@@ -28,6 +28,10 @@ const HomeScreen = ({ navigation }) => {
         <Text>Loading...</Text>
       )}
 
+      <View style={{ height: "78%" }}></View>
+
+      <BottomTabs style={styles.bottomTabs} />
+
       <StatusBar style="dark" />
     </View>
   );
@@ -35,4 +39,12 @@ const HomeScreen = ({ navigation }) => {
 
 export default HomeScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  bottomTabs: {
+    display: "flex",
+    flex: 1,
+    width: "100%",
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+  },
+});

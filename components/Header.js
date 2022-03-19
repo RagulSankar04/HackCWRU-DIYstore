@@ -19,7 +19,7 @@ const Header = (props) => {
             paddingLeft: 8,
           }}
         >
-          {props.displayName}
+          Hello, {props.displayName.split(" ")[0]}
         </Text>
         {props.photoURL ? (
           <Avatar size={50} source={{ uri: props.photoURL }} rounded key={0} />
@@ -29,7 +29,7 @@ const Header = (props) => {
             rounded
             containerStyle={{ backgroundColor: "grey" }}
             title={props.displayName[0]}
-            key={0}
+            key={1}
           />
         )}
       </View>
