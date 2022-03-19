@@ -16,11 +16,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen
           options={{
-            headerStyle: {
-              backgroundColor: "#714F93",
-            },
-            headerTintColor: "#fff",
-            headerLeft: false,
+            headerShown: false,
           }}
           name="Start"
           component={StartScreen}

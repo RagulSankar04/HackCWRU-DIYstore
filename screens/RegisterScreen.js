@@ -7,18 +7,55 @@ import {
   Platform,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { auth, firebase } from "../firebase";
-import { Button, SocialIcon, Text } from "react-native-elements";
+import { auth, db } from "../firebase";
+import { Text } from "react-native-elements";
 import React, { useEffect, useState } from "react";
-
+import * as EmailValidator from "email-validator";
 const RegisterScreen = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cPass, setCPass] = useState("");
 
+  const onSignUp = () => {
+    if (!name || !email || !password || !cPass) {
+      alert("There The Empty Field Boxes, Enter all the Fields to Proceeds");
+      return;
+    } else {
+      if (!EmailValidator.validate(email)) {
+        alert("Please Enter a Valid Emaill Address");
+        return;
+      } else {
+        if (password !== cPass) {
+          alert("The Passwords Dies Not Match");
+          return;
+        } else {
+          auth
+            .createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+              db.collection("users")
+                .add({
+                  name: name,
+                  email: email,
+                  password: password,
+                })
+                .then(() => {
+                  console.log("Document successfully written!");
+                })
+                .catch((error) => {
+                  console.error("Error writing document: ", error);
+                });
+            })
+            .catch((error) => {
+              alert(error.messages);
+            });
+        }
+      }
+    }
+  };
+
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView style={styles.container}>
       <View style={styles.signUpContainer}>
         <Text style={styles.mainTitle}>Register</Text>
         <TextInput
@@ -49,11 +86,12 @@ const RegisterScreen = () => {
           secureTextEntry
           value={cPass}
         />
-        <Pressable style={styles.register}>
+        <Pressable style={styles.register} onPress={onSignUp}>
           <Text style={styles.btnText}>Sign Up</Text>
         </Pressable>
       </View>
-    </View>
+      <StatusBar style="light" />
+    </KeyboardAvoidingView>
   );
 };
 
@@ -64,7 +102,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "black",
+    backgroundColor: "whitesmoke",
   },
   signUpContainer: {
     backgroundColor: "#fff",
