@@ -7,11 +7,23 @@ import {
   Platform,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { auth, firebase, signInWithGoogleAsync } from "../firebase";
+import { auth, signInWithGoogleAsync } from "../firebase";
 import { SocialIcon, Text } from "react-native-elements";
-import React from "react";
+import React, { useState } from "react";
 
 const LoginScreen = ({ navigation }) => {
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [enteredPassword, setEnteredPassword] = useState("");
+
+  const onLogin = () => {
+    auth
+      .signInWithEmailAndPassword(enteredEmail, enteredPassword)
+      .then(() => {
+        navigation.navigate("Start");
+      })
+      .catch(alert);
+  };
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -21,15 +33,24 @@ const LoginScreen = ({ navigation }) => {
         <View style={styles.mainContainer}>
           <View style={styles.loginContainer}>
             <Text style={styles.mainTitle}>Login</Text>
-            <TextInput placeholder="Email Address" style={styles.input} />
+            <TextInput
+              placeholder="Email Address"
+              style={styles.input}
+              onChangeText={(targetText) => setEnteredEmail(targetText)}
+              value={enteredEmail}
+            />
             <TextInput
               placeholder="Password"
               type="password"
               secureTextEntry
               style={styles.input}
+              onChangeText={(targetText) => setEnteredPassword(targetText)}
+              value={enteredPassword}
             />
             <Pressable style={styles.button}>
-              <Text style={styles.btnText}>Login</Text>
+              <Text style={styles.btnText} onPress={onLogin}>
+                Login
+              </Text>
             </Pressable>
             <View style={styles.socialConatiner}>
               <SocialIcon type="github" />
