@@ -9,19 +9,9 @@ import {
 import { StatusBar } from "expo-status-bar";
 import { auth, firebase, signInWithGoogleAsync } from "../firebase";
 import { SocialIcon, Text } from "react-native-elements";
-import React, { useEffect } from "react";
+import React from "react";
 
 const LoginScreen = ({ navigation }) => {
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        navigation.navigate("Home");
-      } else {
-        console.log("Not Logged In");
-      }
-    });
-  }, []);
-
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}

@@ -2,6 +2,7 @@ import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { LogBox, StyleSheet, Text, View } from "react-native";
+import StartScreen from "./screens/StartScreen";
 import LoginScreen from "./screens/LoginScreen";
 
 const Stack = createStackNavigator();
@@ -10,6 +11,13 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="Start"
+          component={StartScreen}
+        />
         <Stack.Screen
           options={{
             headerStyle: {
