@@ -1,5 +1,5 @@
-import { StyleSheet, Text, ScrollView } from "react-native";
-import React from "react";
+import { StyleSheet, Text, ScrollView, View } from "react-native";
+import React, { useEffect, useState } from "react";
 import EachProduct from "../components/EachProduct";
 import { StatusBar } from "expo-status-bar";
 
@@ -57,19 +57,22 @@ const CartScreen = () => {
   ];
 
   return (
-    <ScrollView bouncesZoom>
-      {data.map((item) => (
-        <EachProduct
-          key={item.id}
-          image={item.image}
-          name={item.name}
-          category={item.category}
-          quantity={item.quantity}
-          price={item.price}
-        />
-      ))}
-      <StatusBar style="light" />
-    </ScrollView>
+    <View>
+      <ScrollView style={styles.cartContainer} bouncesZoom>
+        {data.map((item) => (
+          <EachProduct
+            key={item.id}
+            image={item.image}
+            name={item.name}
+            category={item.category}
+            quantity={item.quantity}
+            price={item.price}
+          />
+        ))}
+
+        <StatusBar style="dark" />
+      </ScrollView>
+    </View>
   );
 };
 

@@ -5,7 +5,6 @@ import { LogBox, StyleSheet, Text, View } from "react-native";
 import StartScreen from "./screens/StartScreen";
 import LoginScreen from "./screens/LoginScreen";
 import HomeScreen from "./screens/HomeScreen";
-import CartScreen from "./screens/CartScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 
 const Stack = createStackNavigator();
@@ -24,7 +23,7 @@ export default function App() {
         <Stack.Screen
           options={{
             headerStyle: {
-              backgroundColor: "#714F93",
+              backgroundColor: "#1A4ADA",
             },
             headerTintColor: "#fff",
             headerLeft: false,
@@ -35,7 +34,7 @@ export default function App() {
         <Stack.Screen
           options={{
             headerStyle: {
-              backgroundColor: "#714F93",
+              backgroundColor: "#1A4ADA",
             },
             headerTintColor: "#fff",
           }}
@@ -46,16 +45,6 @@ export default function App() {
           options={{ headerShown: false }}
           name="Home"
           component={HomeScreen}
-        />
-        <Stack.Screen
-          options={{
-            headerStyle: {
-              backgroundColor: "#714F93",
-            },
-            headerTintColor: "#fff",
-          }}
-          name="Cart"
-          component={CartScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

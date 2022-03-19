@@ -1,6 +1,11 @@
-import { StyleSheet, SafeAreaView, Image } from "react-native";
+import {
+  StyleSheet,
+  SafeAreaView,
+  Image,
+  ActivityIndicator,
+} from "react-native";
 import React, { useEffect } from "react";
-import { auth, firebase } from "../firebase";
+import { auth } from "../firebase";
 import { StatusBar } from "expo-status-bar";
 
 const StartScrren = ({ navigation }) => {
@@ -20,6 +25,7 @@ const StartScrren = ({ navigation }) => {
         style={{ width: 300, height: 300 }}
         source={require("../images/logo.png")}
       />
+      <ActivityIndicator size="large" color="#1A4ADA" />
       <StatusBar style="light" />
     </SafeAreaView>
   );

@@ -9,7 +9,13 @@ const EachProduct = (props) => {
         {props.image ? (
           <Avatar size={130} source={{ uri: props.image }} key={0} />
         ) : (
-          <Avatar size={130} rounded title="UA" key={1} />
+          <Avatar
+            size={130}
+            rounded
+            title="NA"
+            containerStyle={{ backgroundColor: "grey", opacity: 0.5 }}
+            key={1}
+          />
         )}
       </View>
       <View style={styles.productDetails}>
@@ -41,9 +47,7 @@ export default EachProduct;
 
 const styles = StyleSheet.create({
   container: {
-    borderColor: "#000",
-    borderStyle: "solid",
-    borderWidth: 2,
+    backgroundColor: "#fff",
     margin: 8,
     padding: 10,
     display: "flex",

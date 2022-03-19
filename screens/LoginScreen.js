@@ -78,7 +78,7 @@ const LoginScreen = ({ navigation }) => {
 
             <View style={styles.socialConatiner}>
               <SocialIcon
-                style={{ backgroundColor: "#714F93" }}
+                style={{ backgroundColor: "#1A4ADA" }}
                 onPress={signInWithGoogleAsync}
                 type="google"
               />
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontWeight: "700",
     fontSize: 32,
-    color: "#714F93",
+    color: "#1A4ADA",
   },
   input: {
     marginTop: 10,
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 14,
-    backgroundColor: "#714F93",
+    backgroundColor: "#1A4ADA",
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 12,
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   registerHere: {
-    color: "#714F93",
+    color: "#1A4ADA",
     fontWeight: "bold",
   },
 });

@@ -143,11 +143,11 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontWeight: "700",
     fontSize: 32,
-    color: "#714F93",
+    color: "#1A4ADA",
   },
   register: {
     marginTop: 14,
-    backgroundColor: "#714F93",
+    backgroundColor: "#1A4ADA",
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 12,
