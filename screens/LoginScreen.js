@@ -76,7 +76,6 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     fontSize: 32,
     color: "#714F93",
-    fontFamily: "Abhaya-Libre",
   },
   input: {
     marginTop: 10,

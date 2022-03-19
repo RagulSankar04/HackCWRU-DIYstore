@@ -6,7 +6,7 @@ const StartScrren = ({ navigation }) => {
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        console.log(user);
+        navigation.navigate("Home");
       } else {
         navigation.navigate("Login");
       }
