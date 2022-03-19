@@ -5,6 +5,7 @@ import {
   KeyboardAvoidingView,
   Pressable,
   Platform,
+  ActivityIndicator,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { auth, db } from "../firebase";
@@ -17,17 +18,23 @@ const RegisterScreen = () => {
   const [password, setPassword] = useState("");
   const [cPass, setCPass] = useState("");
 
+  const [loaderState, setLoaderState] = useState(0);
+
   const onSignUp = () => {
+    setLoaderState(1);
     if (!name || !email || !password || !cPass) {
       alert("There The Empty Field Boxes, Enter all the Fields to Proceeds");
+      setLoaderState(0);
       return;
     } else {
       if (!EmailValidator.validate(email)) {
         alert("Please Enter a Valid Emaill Address");
+        setLoaderState(0);
         return;
       } else {
         if (password !== cPass) {
           alert("The Passwords Dies Not Match");
+          setLoaderState(0);
           return;
         } else {
           auth
@@ -41,6 +48,7 @@ const RegisterScreen = () => {
                 })
                 .then(() => {
                   console.log("Document successfully written!");
+                  setLoaderState(0);
                 })
                 .catch((error) => {
                   console.error("Error writing document: ", error);
@@ -87,7 +95,11 @@ const RegisterScreen = () => {
           value={cPass}
         />
         <Pressable style={styles.register} onPress={onSignUp}>
-          <Text style={styles.btnText}>Sign Up</Text>
+          {!loaderState ? (
+            <Text style={styles.btnText}>Sign Up</Text>
+          ) : (
+            <ActivityIndicator size="small" color="#fff" />
+          )}
         </Pressable>
       </View>
       <StatusBar style="light" />

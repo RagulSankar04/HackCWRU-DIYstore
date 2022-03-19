@@ -5,6 +5,7 @@ import {
   KeyboardAvoidingView,
   Pressable,
   Platform,
+  ActivityIndicator,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { auth, signInWithGoogleAsync } from "../firebase";
@@ -15,10 +16,14 @@ const LoginScreen = ({ navigation }) => {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
 
+  const [loaderState, setLoaderState] = useState(0);
+
   const onLogin = () => {
+    setLoaderState(1);
     auth
       .signInWithEmailAndPassword(enteredEmail, enteredPassword)
       .then(() => {
+        setLoaderState(0);
         navigation.navigate("Start");
       })
       .catch(alert);
@@ -48,9 +53,13 @@ const LoginScreen = ({ navigation }) => {
               value={enteredPassword}
             />
             <Pressable style={styles.button}>
-              <Text style={styles.btnText} onPress={onLogin}>
-                Login
-              </Text>
+              {!loaderState ? (
+                <Text style={styles.btnText} onPress={onLogin}>
+                  Login
+                </Text>
+              ) : (
+                <ActivityIndicator size="small" color="#fff" />
+              )}
             </Pressable>
             <View style={styles.registerContainer}>
               <Text style={styles.toRegister}>To Register with us</Text>
