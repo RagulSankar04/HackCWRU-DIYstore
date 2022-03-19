@@ -57,7 +57,7 @@ const CartScreen = () => {
   ];
 
   return (
-    <ScrollView>
+    <ScrollView bouncesZoom>
       {data.map((item) => (
         <EachProduct
           key={item.id}
