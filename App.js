@@ -43,13 +43,7 @@ export default function App() {
           component={RegisterScreen}
         />
         <Stack.Screen
-          options={{
-            headerStyle: {
-              backgroundColor: "#714F93",
-            },
-            headerTintColor: "#fff",
-            headerLeft: false,
-          }}
+          options={{ headerShown: false }}
           name="Home"
           component={HomeScreen}
         />

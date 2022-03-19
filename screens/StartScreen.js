@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
+import { StyleSheet, SafeAreaView, Image } from "react-native";
 import React, { useEffect } from "react";
 import { auth, firebase } from "../firebase";
 import { StatusBar } from "expo-status-bar";
@@ -12,7 +12,7 @@ const StartScrren = ({ navigation }) => {
         navigation.navigate("Login");
       }
     });
-  }, []);
+  }, [navigation]);
 
   return (
     <SafeAreaView style={styles.container}>

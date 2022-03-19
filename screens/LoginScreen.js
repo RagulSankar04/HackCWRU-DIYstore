@@ -26,7 +26,10 @@ const LoginScreen = ({ navigation }) => {
         setLoaderState(0);
         navigation.navigate("Start");
       })
-      .catch(alert);
+      .catch((error) => {
+        alert(error.message);
+        setLoaderState(0);
+      });
   };
 
   return (
@@ -74,8 +77,11 @@ const LoginScreen = ({ navigation }) => {
             </View>
 
             <View style={styles.socialConatiner}>
-              <SocialIcon type="github" />
-              <SocialIcon onPress={signInWithGoogleAsync} type="google" />
+              <SocialIcon
+                style={{ backgroundColor: "#714F93" }}
+                onPress={signInWithGoogleAsync}
+                type="google"
+              />
             </View>
           </View>
         </View>

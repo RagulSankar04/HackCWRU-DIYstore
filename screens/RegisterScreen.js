@@ -51,11 +51,13 @@ const RegisterScreen = () => {
                   setLoaderState(0);
                 })
                 .catch((error) => {
-                  console.error("Error writing document: ", error);
+                  console.log("Error writing document: ", error.message);
+                  setLoaderState(0);
                 });
             })
             .catch((error) => {
-              alert(error.messages);
+              alert(error.message);
+              setLoaderState(0);
             });
         }
       }
