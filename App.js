@@ -16,7 +16,7 @@ export default function App() {
         <Stack.Screen
           options={{
             headerStyle: {
-              backgroundColor: "#521e85",
+              backgroundColor: "#714F93",
             },
             headerTintColor: "#fff",
             headerLeft: false,
@@ -27,7 +27,7 @@ export default function App() {
         <Stack.Screen
           options={{
             headerStyle: {
-              backgroundColor: "#521e85",
+              backgroundColor: "#714F93",
             },
             headerTintColor: "#fff",
             headerLeft: false,
@@ -38,7 +38,7 @@ export default function App() {
         <Stack.Screen
           options={{
             headerStyle: {
-              backgroundColor: "#521e85",
+              backgroundColor: "#714F93",
             },
             headerTintColor: "#fff",
             headerLeft: false,
@@ -49,10 +49,9 @@ export default function App() {
         <Stack.Screen
           options={{
             headerStyle: {
-              backgroundColor: "#521e85",
+              backgroundColor: "#714F93",
             },
             headerTintColor: "#fff",
-            headerLeft: false,
           }}
           name="Cart"
           component={CartScreen}

@@ -73,7 +73,6 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     justifyContent: "center",
-    backgroundColor: "#000000d2",
   },
   loginContainer: {
     backgroundColor: "#fff",

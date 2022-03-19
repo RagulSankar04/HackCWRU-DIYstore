@@ -38,22 +38,6 @@ const CartScreen = () => {
       quantity: 2,
       price: 15000,
     },
-    {
-      id: 4,
-      image: "",
-      name: "Monitor",
-      category: "Technology",
-      quantity: 2,
-      price: 15000,
-    },
-    {
-      id: 4,
-      image: "",
-      name: "Monitor",
-      category: "Technology",
-      quantity: 2,
-      price: 15000,
-    },
   ];
 
   return (

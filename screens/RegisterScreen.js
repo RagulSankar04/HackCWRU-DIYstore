@@ -12,7 +12,11 @@ import { SocialIcon, Text } from "react-native-elements";
 import React, { useEffect } from "react";
 
 const RegisterScreen = () => {
-  return <View></View>;
+  return (
+    <View>
+      <Text>Name</Text>
+    </View>
+  );
 };
 
 export default RegisterScreen;
