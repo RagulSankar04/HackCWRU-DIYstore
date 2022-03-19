@@ -52,6 +52,18 @@ const LoginScreen = ({ navigation }) => {
                 Login
               </Text>
             </Pressable>
+            <View style={styles.registerContainer}>
+              <Text style={styles.toRegister}>To Register with us</Text>
+              <Text
+                style={styles.registerHere}
+                onPress={() => {
+                  navigation.navigate("Register");
+                }}
+              >
+                Click Here
+              </Text>
+            </View>
+
             <View style={styles.socialConatiner}>
               <SocialIcon type="github" />
               <SocialIcon onPress={signInWithGoogleAsync} type="google" />
@@ -77,10 +89,10 @@ const styles = StyleSheet.create({
   loginContainer: {
     backgroundColor: "#fff",
     width: 297,
-    height: 500,
+    height: 450,
     borderRadius: 20,
     shadowOffset: { width: 10, height: 10 },
-    shadowColor: "black",
+    shadowColor: "grey",
     shadowOpacity: 1.0,
     display: "flex",
     alignItems: "center",
@@ -92,7 +104,7 @@ const styles = StyleSheet.create({
   },
   mainTitle: {
     marginTop: 10,
-    marginBottom: 25,
+    marginBottom: 10,
     fontWeight: "700",
     fontSize: 32,
     color: "#714F93",
@@ -103,7 +115,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     borderRadius: 8,
-    width: 200,
+    width: "100%",
   },
   button: {
     marginTop: 14,
@@ -129,5 +141,17 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     justifyContent: "flex-end",
     flex: 1,
+    marginTop: 20,
+  },
+  registerContainer: {
+    display: "flex",
+    alignItems: "center",
+  },
+  toRegister: {
+    marginTop: 20,
+  },
+  registerHere: {
+    color: "#714F93",
+    fontWeight: "bold",
   },
 });

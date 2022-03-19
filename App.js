@@ -6,6 +6,7 @@ import StartScreen from "./screens/StartScreen";
 import LoginScreen from "./screens/LoginScreen";
 import HomeScreen from "./screens/HomeScreen";
 import CartScreen from "./screens/CartScreen";
+import RegisterScreen from "./screens/RegisterScreen";
 
 const Stack = createStackNavigator();
 LogBox.ignoreAllLogs();
@@ -34,6 +35,16 @@ export default function App() {
           }}
           name="Login"
           component={LoginScreen}
+        />
+        <Stack.Screen
+          options={{
+            headerStyle: {
+              backgroundColor: "#714F93",
+            },
+            headerTintColor: "#fff",
+          }}
+          name="Register"
+          component={RegisterScreen}
         />
         <Stack.Screen
           options={{

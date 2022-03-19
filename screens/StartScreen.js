@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 import React, { useEffect } from "react";
 import { auth, firebase } from "../firebase";
+import { Image } from "react-native-elements";
+import { StatusBar } from "expo-status-bar";
 
 const StartScrren = ({ navigation }) => {
   useEffect(() => {
@@ -15,7 +17,12 @@ const StartScrren = ({ navigation }) => {
 
   return (
     <SafeAreaView>
-      <Text>StartScrren</Text>
+      <Image
+        ContainerStyle={{ width: 200, height: 200 }}
+        source={require("../images/logo.png")}
+      />
+      <Text>Starting Page</Text>
+      <StatusBar style="light" />
     </SafeAreaView>
   );
 };
