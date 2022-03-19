@@ -9,7 +9,7 @@ const EachProduct = (props) => {
         {props.image ? (
           <Avatar size={130} source={{ uri: props.image }} key={0} />
         ) : (
-          <Avatar size={130} rounded title="UA" key={0} />
+          <Avatar size={130} rounded title="UA" key={1} />
         )}
       </View>
       <View style={styles.productDetails}>

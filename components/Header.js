@@ -7,7 +7,7 @@ const Header = (props) => {
   return (
     <SafeAreaView style={styles.conatiner}>
       <View style={styles.navbar}>
-        <Avatar size={50} source={require("../images/logo.png")} key={0} />
+        <Avatar size={50} source={require("../images/logo.png")} />
         <Text
           style={{
             fontWeight: "bold",
@@ -22,14 +22,13 @@ const Header = (props) => {
           Hello, {props.displayName.split(" ")[0]}
         </Text>
         {props.photoURL ? (
-          <Avatar size={50} source={{ uri: props.photoURL }} rounded key={0} />
+          <Avatar size={50} source={{ uri: props.photoURL }} rounded />
         ) : (
           <Avatar
             size={50}
             rounded
             containerStyle={{ backgroundColor: "grey" }}
             title={props.displayName[0]}
-            key={1}
           />
         )}
       </View>

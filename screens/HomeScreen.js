@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import { Image, ScrollView, StyleSheet, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Button, Text } from "react-native-elements";
 import { auth } from "../firebase";
@@ -18,7 +18,7 @@ const HomeScreen = ({ navigation }) => {
   }, [user]);
 
   return (
-    <View>
+    <View style={styles.container}>
       {user ? (
         <Header
           displayName={user.displayName || ""}
@@ -28,7 +28,85 @@ const HomeScreen = ({ navigation }) => {
         <Text>Loading...</Text>
       )}
 
-      <View style={{ height: "78%" }}></View>
+      <ScrollView style={styles.homeContainer}>
+        <Image
+          style={styles.banner}
+          source={require("../images/Banner.png")}
+        ></Image>
+
+        <View style={styles.categoryContainer}>
+          <View style={styles.category1}>
+            <View
+              style={[
+                styles.categoryImageContainer,
+                { backgroundColor: "#F0FFB2" },
+              ]}
+            >
+              <Image
+                style={styles.categoryImage}
+                source={require("../images/Categories-1.png")}
+              />
+            </View>
+            <View
+              style={[
+                styles.categoryImageContainer,
+                { backgroundColor: "#B9FFF7" },
+              ]}
+            >
+              <Image
+                style={styles.categoryImage}
+                source={require("../images/Categories-2.png")}
+              />
+            </View>
+            <View
+              style={[
+                styles.categoryImageContainer,
+                { backgroundColor: "#FF9292" },
+              ]}
+            >
+              <Image
+                style={styles.categoryImage}
+                source={require("../images/Categories-3.png")}
+              />
+            </View>
+          </View>
+          <View style={styles.category2}>
+            <View
+              style={[
+                styles.categoryImageContainer,
+                { backgroundColor: "#FFE587" },
+              ]}
+            >
+              <Image
+                style={styles.categoryImage}
+                source={require("../images/Categories-4.png")}
+              />
+            </View>
+            <View
+              style={[
+                styles.categoryImageContainer,
+                { backgroundColor: "#A4DBFA" },
+              ]}
+            >
+              <Image
+                style={styles.categoryImage}
+                source={require("../images/Categories-5.png")}
+              />
+            </View>
+            <View
+              style={[
+                styles.categoryImageContainer,
+                { backgroundColor: "#FFAFDA" },
+              ]}
+            >
+              <Image
+                style={styles.categoryImage}
+                source={require("../images/Categories-6.png")}
+              />
+            </View>
+          </View>
+        </View>
+      </ScrollView>
 
       <BottomTabs style={styles.bottomTabs} />
 
@@ -40,11 +118,44 @@ const HomeScreen = ({ navigation }) => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-  bottomTabs: {
+  container: {
     display: "flex",
-    flex: 1,
-    width: "100%",
-    justifyContent: "flex-end",
-    alignItems: "flex-end",
+    justifyContent: "space-between",
+  },
+  bottomTabs: {
+    position: "relative",
+    bottom: 0,
+  },
+  homeContainer: {
+    height: "76.5%",
+    padding: 12,
+    marginTop: 10,
+  },
+  banner: {
+    backgroundColor: "#DAD7D0",
+    borderRadius: 16,
+    aspectRatio: 170 / 77,
+  },
+  categoryContainer: {
+    display: "flex",
+    margin: 5,
+    marginTop: 15,
+  },
+  category1: {
+    display: "flex",
+    flexDirection: "row",
+  },
+  category2: {
+    display: "flex",
+    flexDirection: "row",
+  },
+  categoryImageContainer: {
+    padding: 15,
+    margin: 5,
+    borderRadius: 10,
+  },
+  categoryImage: {
+    width: 68,
+    height: 68,
   },
 });
