@@ -9,6 +9,7 @@ import Home from "../components/Home";
 import { createStackNavigator } from "@react-navigation/stack";
 import CartScreen from "./CartScreen";
 import AccountsScreen from "./AccountsScreen";
+import ProductsPage from "./ProductsPage";
 
 const HomeScreen = ({ navigation }) => {
   navigation.canGoBack(false);
@@ -54,6 +55,11 @@ const HomeScreen = ({ navigation }) => {
           options={{ headerShown: false }}
           name="Account"
           component={AccountsScreen}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="Products"
+          component={ProductsPage}
         />
       </Stack.Navigator>
 

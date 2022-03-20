@@ -40,6 +40,7 @@ const BottomTabs = (props) => {
         <Pressable
           style={searchPress ? styles.buttonHovered : styles.button}
           onPress={() => {
+            props.navigation.navigate("Products");
             setHomePress(0);
             setSearchPress(1);
             setCartPress(0);
