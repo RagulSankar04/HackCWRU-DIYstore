@@ -1,0 +1,4 @@
+<Views >
+          <Image style={styles.sellBanner}
+          source={require("../images/Banner2.png")}></Image>
+        </Views>
