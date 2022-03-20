@@ -1,74 +1,38 @@
-import { StyleSheet, Text, ScrollView, View } from "react-native";
+import { StyleSheet, ScrollView, View } from "react-native";
 import React, { useEffect, useState } from "react";
+import { Text } from "react-native-elements";
 import EachProduct from "../components/EachProduct";
 import { StatusBar } from "expo-status-bar";
 
 const CartScreen = () => {
-  const data = [
-    {
-      id: 1,
-      image:
-        "https://images.unsplash.com/photo-1647546789972-71b9df1dfc8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60",
-      name: "Mobile Holder",
-      category: "Technology",
-      quantity: 4,
-      price: 255,
-    },
-    {
-      id: 2,
-      image: "",
-      name: "Mouse pad",
-      category: "Technology",
-      quantity: 3,
-      price: 150,
-    },
-    {
-      id: 3,
-      image: "",
-      name: "Monitor",
-      category: "Technology",
-      quantity: 2,
-      price: 15000,
-    },
-    {
-      id: 4,
-      image: "",
-      name: "Monitor",
-      category: "Technology",
-      quantity: 2,
-      price: 15000,
-    },
-    {
-      id: 5,
-      image: "",
-      name: "Monitor",
-      category: "Technology",
-      quantity: 2,
-      price: 15000,
-    },
-    {
-      id: 6,
-      image: "",
-      name: "Monitor",
-      category: "Technology",
-      quantity: 2,
-      price: 15000,
-    },
-  ];
+  const finalAmount = useState(0);
+
+  const data = [];
 
   return (
     <View>
+      <View style={styles.totalPaymentContainer}>
+        <Text style={styles.totalPayment}>
+          The Amount to be Paid is {finalAmount}
+        </Text>
+      </View>
       <ScrollView style={styles.cartContainer} bouncesZoom>
-        {data.map((item) => (
-          <EachProduct
-            key={item.id}
-            image={item.image}
-            name={item.name}
-            category={item.category}
-            quantity={item.quantity}
-            price={item.price}
-          />
-        ))}
+        {data.length ? (
+          data.map((item) => (
+            <EachProduct
+              key={item.id}
+              image={item.image}
+              name={item.name}
+              category={item.category}
+              quantity={item.quantity}
+              price={item.price}
+            />
+          ))
+        ) : (
+          <Text h3 style={styles.noRecord}>
+            No Record Found
+          </Text>
+        )}
 
         <StatusBar style="dark" />
       </ScrollView>
@@ -78,4 +42,20 @@ const CartScreen = () => {
 
 export default CartScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  noRecord: {
+    textAlign: "center",
+    color: "red",
+    marginTop: 120,
+  },
+  totalPaymentContainer: {
+    backgroundColor: "#fff",
+    margin: 14,
+    marginHorizontal: 70,
+    padding: 20,
+    borderRadius: 20,
+  },
+  totalPayment: {
+    textAlign: "center",
+  },
+});

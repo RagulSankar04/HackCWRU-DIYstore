@@ -7,27 +7,37 @@ import {
 import React, { useEffect } from "react";
 import { auth } from "../firebase";
 import { StatusBar } from "expo-status-bar";
+import LoginContainer from "../components/LoginContainer";
+import HomeContainer from "../components/HomeContainer";
+import { createStackNavigator } from "@react-navigation/stack";
+
+const Stack = createStackNavigator();
 
 const StartScrren = ({ navigation }) => {
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        navigation.navigate("Home");
-      } else {
-        navigation.navigate("Login");
       }
     });
   }, [navigation]);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Image
-        style={{ width: 300, height: 300 }}
-        source={require("../images/logo.png")}
+    <Stack.Navigator>
+      <Stack.Screen
+        options={{
+          headerShown: false,
+        }}
+        name="Login"
+        component={LoginContainer}
       />
-      <ActivityIndicator size="large" color="#1A4ADA" />
-      <StatusBar style="light" />
-    </SafeAreaView>
+      <Stack.Screen
+        options={{
+          headerShown: false,
+        }}
+        name="Home"
+        component={HomeContainer}
+      />
+    </Stack.Navigator>
   );
 };
 
