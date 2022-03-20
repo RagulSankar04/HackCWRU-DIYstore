@@ -9,7 +9,6 @@ const Home = () => {
           style={styles.banner}
           source={require("../images/Banner.png")}
         ></Image>
-
         <View style={styles.categoryContainer}>
           <View style={styles.category1}>
             <View
@@ -17,6 +16,7 @@ const Home = () => {
                 styles.categoryImageContainer,
                 { backgroundColor: "#F0FFB2" },
               ]}
+
             >
               <Image
                 style={styles.categoryImage}
@@ -82,6 +82,10 @@ const Home = () => {
             </View>
           </View>
         </View>
+        <Image 
+        style={styles.sellBanner}
+        source={require("../images/Banner2.png")}>
+        </Image>
       </ScrollView>
     </View>
   );
@@ -127,4 +131,8 @@ const styles = StyleSheet.create({
     width: 68,
     height: 68,
   },
+  sellBanner:{
+    aspectRatio: 16/9,
+    height:250,
+  }
 });
