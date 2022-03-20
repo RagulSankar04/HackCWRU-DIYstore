@@ -8,7 +8,7 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { auth, signInWithGoogleAsync } from "../firebase";
+import { auth, signInWithGoogleAsync, db, firebase } from "../firebase";
 import { SocialIcon, Text } from "react-native-elements";
 import React, { useState } from "react";
 

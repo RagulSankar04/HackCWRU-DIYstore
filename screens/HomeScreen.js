@@ -8,14 +8,19 @@ import BottomTabs from "../components/BottomTabs";
 import Home from "../components/Home";
 import { createStackNavigator } from "@react-navigation/stack";
 import CartScreen from "./CartScreen";
+import AccountsScreen from "./AccountsScreen";
 
 const HomeScreen = ({ navigation }) => {
+  navigation.canGoBack(false);
+
   const [user, setUser] = useState({});
 
   useEffect(() => {
     auth.onAuthStateChanged((u) => {
       if (u) {
         setUser(u);
+      } else {
+        navigation.navigate("Login");
       }
     });
   }, [user]);
@@ -24,6 +29,7 @@ const HomeScreen = ({ navigation }) => {
     <>
       {user ? (
         <Header
+          navigation={navigation}
           displayName={user.displayName || ""}
           photoURL={user.photoURL || ""}
         />
@@ -43,6 +49,11 @@ const HomeScreen = ({ navigation }) => {
           options={{ headerShown: false }}
           name="Cart"
           component={CartScreen}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="Account"
+          component={AccountsScreen}
         />
       </Stack.Navigator>
 

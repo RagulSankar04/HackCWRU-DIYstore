@@ -10,13 +10,23 @@ const HomeContainer = () => {
     <Stack.Navigator>
       <Stack.Screen
         options={{
-          headerShown: false,
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: "#1A4ADA",
+          },
+          headerTintColor: "#fff",
         }}
         name="Login"
         component={LoginScreen}
       />
       <Stack.Screen
-        options={{ headerShown: false }}
+        options={{
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: "#1A4ADA",
+          },
+          headerTintColor: "#fff",
+        }}
         name="Register"
         component={RegisterScreen}
       />

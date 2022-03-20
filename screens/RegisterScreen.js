@@ -8,7 +8,7 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { auth, db } from "../firebase";
+import { auth, db, firebase } from "../firebase";
 import { Text } from "react-native-elements";
 import React, { useEffect, useState } from "react";
 import * as EmailValidator from "email-validator";
@@ -40,20 +40,14 @@ const RegisterScreen = () => {
           auth
             .createUserWithEmailAndPassword(email, password)
             .then((userCredential) => {
-              db.collection("users")
-                .add({
+              db.collection("users").doc(userCredential.user.uid).set(
+                {
                   name: name,
                   email: email,
-                  password: password,
-                })
-                .then(() => {
-                  console.log("Document successfully written!");
-                  setLoaderState(0);
-                })
-                .catch((error) => {
-                  console.log("Error writing document: ", error.message);
-                  setLoaderState(0);
-                });
+                  timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                },
+                { merge: true }
+              );
             })
             .catch((error) => {
               alert(error.message);

@@ -84,7 +84,7 @@ const BottomTabs = (props) => {
             auth
               .signOut()
               .then(() => {
-                alert("You Have Logged Out Successfully");
+                props.navigation.navigate("Loader");
               })
               .catch(alert);
           }}

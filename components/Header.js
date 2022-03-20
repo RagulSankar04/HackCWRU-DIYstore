@@ -22,9 +22,19 @@ const Header = (props) => {
           Hello, {props.displayName.split(" ")[0]}
         </Text>
         {props.photoURL ? (
-          <Avatar size={50} source={{ uri: props.photoURL }} rounded />
+          <Avatar
+            size={50}
+            onPress={() => {
+              props.navigation.navigate("Account");
+            }}
+            source={{ uri: props.photoURL }}
+            rounded
+          />
         ) : (
           <Avatar
+            onPress={() => {
+              props.navigation.navigate("Account");
+            }}
             size={50}
             rounded
             containerStyle={{ backgroundColor: "grey" }}
